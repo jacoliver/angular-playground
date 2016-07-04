@@ -5,18 +5,19 @@ angular.module('F1FeederApp.tvservices', []).
     var tmdbtv = 'http://api.themoviedb.org/3/tv/';
     var apiKey = 'api_key=9f7b5161574813237a0324812d13c799';
     var tmdbsearch = 'http://api.themoviedb.org/3/search/';
+    //image url: http://image.tmdb.org/t/p/w500/8uO0gUM8aNqYLs1OsTBQiXu0fEv.jpg
 
 
     tmdbAPI.getPopularShows = function() {
       return $http({
-        method: 'JSONP', 
+        method: 'GET', 
         url: tmdbtv + 'popular?' + apiKey
       });
     }
 
     tmdbAPI.getTopRatedShows = function() {
       return $http({
-        method: 'JSONP', 
+        method: 'GET', 
         url: tmdbtv + 'top_rated?' + apiKey
       });
     }
@@ -24,35 +25,35 @@ angular.module('F1FeederApp.tvservices', []).
     //should be used
     tmdbAPI.getAiringToday = function() {
       return $http({
-        method: 'JSONP', 
+        method: 'GET', 
         url: tmdbtv + 'airing_today?' + apiKey
       });
     }
 
     tmdbAPI.getAiringToday = function() {
       return $http({
-        method: 'JSONP', 
+        method: 'GET', 
         url: tmdbtv + 'on_the_air?' + apiKey
       });
     }
 
     tmdbAPI.getSimilarShows = function(id) {
       return $http({
-        method: 'JSONP', 
+        method: 'GET', 
         url: tmdbtv + id + '/similar?' + apiKey
       });
     }
 
     tmdbAPI.getShowImages = function(id) {
       return $http({
-        method: 'JSONP', 
+        method: 'GET', 
         url: tmdbtv + id + '/images?' + apiKey
       });
     }
 
     tmdbAPI.GetShowsByTitle = function(input){
       return $http({
-        method: 'JSONP',
+        method: 'GET',
         url: tmdbsearch + '/tv?query=' + input + '&' + apiKey
       })
     }

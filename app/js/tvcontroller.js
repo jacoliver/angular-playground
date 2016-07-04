@@ -9,10 +9,15 @@ angular.module('F1FeederApp.tvcontroller', []).
         return !$scope.nameFilter || re.test(driver.Driver.givenName) || re.test(driver.Driver.familyName);
     };
 
-    tmdbAPIservice.getPopularShows().success(function(response){
-        $scope.popularShowList = response;
-    });
-  }).
+    tmdbAPIservice.getPopularShows().success(function(data, status){
+        if (status == 200) {
+            $scope.popularShowList = data.results;
+            console.log($scope.popularShowList)
+            } else {
+            console.error('Error happened while getting the popular show list.')
+        }
+        });
+    }).
   /* Driver controller */
   controller('driverController', function($scope, $routeParams, ergastAPIservice) {
     $scope.id = $routeParams.id;
