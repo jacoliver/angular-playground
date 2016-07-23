@@ -51,11 +51,18 @@ angular.module('F1FeederApp.tvservices', []).
       });
     }
 
-    tmdbAPI.GetShowsByTitle = function(input){
+    tmdbAPI.getShowsByTitle = function(input){
       return $http({
         method: 'GET',
         url: tmdbsearch + '/tv?query=' + input + '&' + apiKey
-      })
+      });
+    }
+
+    tmdbAPI.getShowDetails = function (id) {
+      return $http({
+        method: 'GET',
+        url: tmdbtv + id + '?' + apiKey
+      });
     }
 
     return tmdbAPI;

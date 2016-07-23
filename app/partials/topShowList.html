@@ -1,14 +1,14 @@
 <input type="text" ng-model="nameFilter" placeholder="Search..."/>
 <table>
 <thead>
-  <tr><th colspan="4">Most Popular Shows</th></tr>
+  <tr><th colspan="4">Top Rated Shows</th></tr>
 </thead>
 <tbody>
-  <tr ng-repeat="show in popularShowList">
+  <tr ng-repeat="show in topRatedList">
     <td>{{$index + 1}}</td>
     <td>
       <img src="{{thumbnailRoute}}{{imSizeMe}}{{show.backdrop_path}}"/>
-      <a href="#/drivers/{{driver.Driver.driverId}}">
+      <a href="#/details/{{show.id}}">
 	  	{{show.name}}
 	  </a>
 	</td>
